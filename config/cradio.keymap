@@ -37,7 +37,7 @@
         lkht: lkht {
             compatible = "zmk,behavior-hold-tap";
             label = "LKHT";
-            bindings = <&mo>, <&sk>;
+            bindings = <&lm>, <&sk>;
 
             #binding-cells = <2>;
             tapping-term-ms = <220>;
@@ -110,10 +110,10 @@
 
         default_layer {
             bindings = <
-&kp Q  &kp W  &kp E  &kp R        &kp T        &kp Y            &kp U             &kp I      &kp O    &kp P
-&kp A  &kp S  &kp D  &kp F        &kp G        &kp H            &kp J             &kp K      &kp L    &kp COLON
-&kp Z  &kp X  &kp C  &kp V        &kp B        &kp N            &kp M             &kp COMMA  &kp DOT  &kp FSLH
-                     &lt 1 SPACE  &kp SPACE    &lt 2 BACKSPACE  &lkht 3 LEFT_GUI
+&kp Q  &kp W  &kp E  &kp R      &kp T          &kp Y            &kp U             &kp I      &kp O    &kp P
+&kp A  &kp S  &kp D  &kp F      &kp G          &kp H            &kp J             &kp K      &kp L    &kp COLON
+&kp Z  &kp X  &kp C  &kp V      &kp B          &kp N            &kp M             &kp COMMA  &kp DOT  &kp FSLH
+                     &kp SPACE  &lt 1 SPACE    &lt 2 BACKSPACE  &lkht 3 LEFT_GUI
             >;
         };
 
