@@ -35,14 +35,7 @@
         };
     };
 
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-
-        tri_layer {
-            if-layers = <1 2>;
-            then-layer = <4>;
-        };
-    };
+    conditional_layers { compatible = "zmk,conditional-layers"; };
 
     combos {
         compatible = "zmk,combos";
@@ -51,6 +44,12 @@
             bindings = <&to 0>;
             key-positions = <30 33>;
             layers = <1 3 2 4>;
+        };
+
+        setting {
+            bindings = <&mo 4>;
+            key-positions = <30 31 32 33>;
+            layers = <0>;
         };
     };
 
@@ -80,15 +79,15 @@
             bindings =
                 <&macro_param_1to1>,
                 <&macro_press>,
-                <&sl MACRO_PLACEHOLDER &macro_param_2to1>,
+                <&mo MACRO_PLACEHOLDER &macro_param_2to1>,
                 <&macro_press>,
-                <&kp MACRO_PLACEHOLDER>,
+                <&sk MACRO_PLACEHOLDER>,
                 <&macro_pause_for_release>,
                 <&macro_param_2to1>,
                 <&macro_release>,
-                <&kp MACRO_PLACEHOLDER &macro_param_1to1>,
+                <&sk MACRO_PLACEHOLDER &macro_param_1to1>,
                 <&macro_release>,
-                <&sl MACRO_PLACEHOLDER>;
+                <&mo MACRO_PLACEHOLDER>;
 
             label = "SLM";
         };
