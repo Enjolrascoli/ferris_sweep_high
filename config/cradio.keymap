@@ -29,7 +29,7 @@
 
             #binding-cells = <2>;
             tapping-term-ms = <220>;
-            flavor = "tap-preferred";
+            flavor = "hold-preferred";
             quick-tap-ms = <150>;
             require-prior-idle-ms = <100>;
         };
@@ -49,14 +49,14 @@
             compatible = "zmk,behavior-tap-dance";
             label = "L_IN_TD";
             #binding-cells = <0>;
-            bindings = <&lt 1 BACKSPACE>, <&kp BACKSPACE>;
+            bindings = <&lt 1 SPACE>, <&kp SPACE>;
         };
 
         r_in_td: r_in_td {
             compatible = "zmk,behavior-tap-dance";
             label = "R_IN_TD";
             #binding-cells = <0>;
-            bindings = <&lt 1 SPACE>, <&kp SPACE>;
+            bindings = <&lt 1 BACKSPACE>, <&kp BACKSPACE>;
         };
 
         l_out_td: l_out_td {
