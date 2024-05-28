@@ -45,6 +45,17 @@
             require-prior-idle-ms = <100>;
             flavor = "tap-preferred";
         };
+
+        lsk: lsk {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LSK";
+            bindings = <&mo>, <&sk>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <220>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <100>;
+        };
     };
 
     conditional_layers { compatible = "zmk,conditional-layers"; };
@@ -110,19 +121,19 @@
 
         default_layer {
             bindings = <
-&kp Q  &kp W  &kp E  &kp R      &kp T          &kp Y            &kp U           &kp I      &kp O    &kp P
-&kp A  &kp S  &kp D  &kp F      &kp G          &kp H            &kp J           &kp K      &kp L    &kp SEMICOLON
-&kp Z  &kp X  &kp C  &kp V      &kp B          &kp N            &kp M           &kp COMMA  &kp DOT  &kp FSLH
-                     &kp SPACE  &lt 1 SPACE    &lt 2 BACKSPACE  &lt 3 LEFT_GUI
+&kp Q  &kp W  &kp E  &kp R              &kp T          &kp Y            &kp U           &kp I      &kp O    &kp P
+&kp A  &kp S  &kp D  &kp F              &kp G          &kp H            &kp J           &kp K      &kp L    &kp SEMICOLON
+&kp Z  &kp X  &kp C  &kp V              &kp B          &kp N            &kp M           &kp COMMA  &kp DOT  &kp FSLH
+                     &lsk 3 LEFT_SHIFT  &lt 1 SPACE    &lt 2 BACKSPACE  &lt 3 LEFT_GUI
             >;
         };
 
         control {
             bindings = <
-&kp F1   &kp F2   &kp F3      &kp F4   &kp F5     &sk TAB           &kp TAB         &kp ESCAPE     &kp LEFT_ALT      &kp PAGE_UP
-&kp F6   &kp F7   &kp F8      &kp F9   &kp F10    &kp LEFT          &kp DOWN        &kp UP         &kp RIGHT         &kp PAGE_DOWN
-&kp F11  &kp F12  &kp INSERT  &sk DEL  &none      &kp BACKSPACE     &kp RETURN      &kp BACKSPACE  &kp LANG_HANGEUL  &kp PRINTSCREEN
-                              &none    &none      &sk LEFT_CONTROL  &sk LEFT_SHIFT
+&kp F1   &kp F2   &kp F3     &kp F4   &kp F5        &sk TAB           &kp TAB         &kp ESCAPE  &kp LEFT_ALT      &kp PAGE_UP
+&kp F6   &kp F7   &kp F8     &kp F9   &kp F10       &kp LEFT          &kp DOWN        &kp UP      &kp RIGHT         &kp PAGE_DOWN
+&kp F11  &kp F12  &kp SPACE  &sk DEL  &kp INSERT    &kp BACKSPACE     &kp RETURN      &kp SPACE   &kp LANG_HANGEUL  &kp PRINTSCREEN
+                             &none    &none         &sk LEFT_CONTROL  &sk LEFT_SHIFT
             >;
         };
 
