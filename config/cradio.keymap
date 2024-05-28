@@ -24,7 +24,7 @@
 
         lht: lht {
             compatible = "zmk,behavior-hold-tap";
-            label = "LHT";
+            label = "hold for layer, tap for sticky layer";
             bindings = <&mo>, <&sl>;
 
             #binding-cells = <2>;
@@ -32,18 +32,6 @@
             flavor = "tap-preferred";
             quick-tap-ms = <150>;
             require-prior-idle-ms = <100>;
-        };
-
-        lkht: lkht {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LKHT";
-            bindings = <&lm>, <&sk>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <220>;
-            quick-tap-ms = <150>;
-            require-prior-idle-ms = <100>;
-            flavor = "tap-preferred";
         };
 
         lsk: lsk {
@@ -55,6 +43,34 @@
             tapping-term-ms = <220>;
             quick-tap-ms = <150>;
             require-prior-idle-ms = <100>;
+        };
+
+        l_in_td: l_in_td {
+            compatible = "zmk,behavior-tap-dance";
+            label = "L_IN_TD";
+            #binding-cells = <0>;
+            bindings = <&lt 1 BACKSPACE>, <&kp BACKSPACE>;
+        };
+
+        r_in_td: r_in_td {
+            compatible = "zmk,behavior-tap-dance";
+            label = "R_IN_TD";
+            #binding-cells = <0>;
+            bindings = <&lt 1 SPACE>, <&kp SPACE>;
+        };
+
+        l_out_td: l_out_td {
+            compatible = "zmk,behavior-tap-dance";
+            label = "L_OUT_TD";
+            #binding-cells = <0>;
+            bindings = <&lt 1 LEFT_GUI>, <&lht 3 3>;
+        };
+
+        r_out_td: r_out_td {
+            compatible = "zmk,behavior-tap-dance";
+            label = "R_OUT_TD";
+            #binding-cells = <0>;
+            bindings = <&lt 1 LEFT_GUI>, <&lht 3 3>;
         };
     };
 
@@ -72,42 +88,6 @@
         setting {
             bindings = <&mo 4>;
             key-positions = <30 31 32 33>;
-            layers = <0>;
-        };
-
-        meta_l {
-            bindings = <&sk LEFT_GUI>;
-            key-positions = <13 12>;
-            layers = <0>;
-        };
-
-        meta_r {
-            bindings = <&sk LEFT_GUI>;
-            key-positions = <16 17>;
-            layers = <0>;
-        };
-
-        ctrl_l {
-            bindings = <&sk LEFT_CONTROL>;
-            key-positions = <11 13>;
-            layers = <0>;
-        };
-
-        ctrl_r {
-            bindings = <&sk LEFT_CONTROL>;
-            key-positions = <16 18>;
-            layers = <0>;
-        };
-
-        shift_l {
-            bindings = <&sk LEFT_SHIFT>;
-            key-positions = <11 12>;
-            layers = <0>;
-        };
-
-        shift_r {
-            bindings = <&sk LEFT_SHIFT>;
-            key-positions = <17 18>;
             layers = <0>;
         };
     };
@@ -157,19 +137,19 @@
 
         default_layer {
             bindings = <
-&kp Q  &kp W  &kp E  &kp R              &kp T          &kp Y            &kp U           &kp I      &kp O    &kp P
-&kp A  &kp S  &kp D  &kp F              &kp G          &kp H            &kp J           &kp K      &kp L    &kp SEMICOLON
-&kp Z  &kp X  &kp C  &kp V              &kp B          &kp N            &kp M           &kp COMMA  &kp DOT  &kp FSLH
-                     &lsk 3 LEFT_SHIFT  &lt 1 SPACE    &lt 2 BACKSPACE  &lt 3 LEFT_GUI
+&kp Q  &kp W  &kp E  &kp R      &kp T       &kp Y     &kp U      &kp I      &kp O    &kp P
+&kp A  &kp S  &kp D  &kp F      &kp G       &kp H     &kp J      &kp K      &kp L    &kp SEMICOLON
+&kp Z  &kp X  &kp C  &kp V      &kp B       &kp N     &kp M      &kp COMMA  &kp DOT  &kp FSLH
+                     &l_out_td  &l_in_td    &r_in_td  &r_out_td
             >;
         };
 
         control {
             bindings = <
-&kp F1   &kp F2   &kp F3     &kp F4   &kp F5        &sk TAB           &kp TAB         &kp ESCAPE  &kp LEFT_ALT      &kp PAGE_UP
-&kp F6   &kp F7   &kp F8     &kp F9   &kp F10       &kp LEFT          &kp DOWN        &kp UP      &kp RIGHT         &kp PAGE_DOWN
-&kp F11  &kp F12  &kp SPACE  &sk DEL  &kp INSERT    &kp BACKSPACE     &kp RETURN      &kp SPACE   &kp LANG_HANGEUL  &kp PRINTSCREEN
-                             &none    &none         &sk LEFT_CONTROL  &sk LEFT_SHIFT
+&kp F1   &kp F2   &kp F3     &kp F4          &kp F5              &sk TAB           &kp TAB         &kp ESCAPE  &kp LEFT_ALT      &kp PAGE_UP
+&kp F6   &kp F7   &kp F8     &kp F9          &kp F10             &kp LEFT          &kp DOWN        &kp UP      &kp RIGHT         &kp PAGE_DOWN
+&kp F11  &kp F12  &kp SPACE  &sk DEL         &kp INSERT          &kp BACKSPACE     &kp RETURN      &kp SPACE   &kp LANG_HANGEUL  &kp PRINTSCREEN
+                             &sk LEFT_SHIFT  &sk LEFT_CONTROL    &sk LEFT_CONTROL  &sk LEFT_SHIFT
             >;
         };
 
@@ -178,16 +158,16 @@
 &kp N1            &kp N2             &kp N3     &kp N4         &kp N5           &kp N6     &kp N7          &kp N8        &kp N9                &kp N0
 &kp EXCLAMATION   &kp AT             &kp HASH   &kp DOLLAR     &kp PERCENT      &kp CARET  &kp AMPS        &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
 &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp MINUS  &kp PLUS       &kp BACKSLASH    &kp PIPE   &kp UNDERSCORE  &kp EQUAL     &kp LEFT_BRACE        &kp RIGHT_BRACE
-                                                &kp BACKSPACE  &kp BACKSPACE    &none      &none
+                                                &kp BACKSPACE  &none            &none      &kp BACKSPACE
             >;
         };
 
         wm {
             bindings = <
-&kp LG(N1)   &kp LG(N2)  &kp LG(N3)  &kp LG(N4)        &kp LG(N5)        &kp LG(N6)  &kp LG(N7)  &kp LG(N8)  &kp LG(N9)  &kp LG(N0)
-&kp LG(TAB)  &kp S       &kp LG(D)   &kp LG(F)         &kp G             &kp LG(H)   &kp LG(J)   &kp LG(K)   &kp LG(L)   &kp N0
-&kp Z        &kp X       &kp LG(C)   &kp LG(V)         &kp B             &kp N       &kp LG(M)   &kp COMMA   &kp DOT     &kp FSLH
-                                     &sk LEFT_CONTROL  &sk LEFT_SHIFT    &none       &none
+&kp LG(N1)   &kp LG(N2)  &kp LG(N3)  &kp LG(N4)      &kp LG(N5)          &kp LG(N6)        &kp LG(N7)      &kp LG(N8)  &kp LG(N9)  &kp LG(N0)
+&kp LG(TAB)  &kp S       &kp LG(D)   &kp LG(F)       &kp G               &kp LG(H)         &kp LG(J)       &kp LG(K)   &kp LG(L)   &kp N0
+&kp Z        &kp X       &kp LG(C)   &kp LG(V)       &kp B               &kp N             &kp LG(M)       &kp COMMA   &kp DOT     &kp FSLH
+                                     &sk LEFT_SHIFT  &sk LEFT_CONTROL    &sk LEFT_CONTROL  &sk LEFT_SHIFT
             >;
         };
 
