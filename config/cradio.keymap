@@ -49,14 +49,14 @@
             compatible = "zmk,behavior-tap-dance";
             label = "L_IN_TD";
             #binding-cells = <0>;
-            bindings = <&lt 1 SPACE>, <&kp SPACE>;
+            bindings = <&lt 2 SPACE>, <&kp SPACE>;
         };
 
         r_in_td: r_in_td {
             compatible = "zmk,behavior-tap-dance";
             label = "R_IN_TD";
             #binding-cells = <0>;
-            bindings = <&lt 1 BACKSPACE>, <&kp BACKSPACE>;
+            bindings = <&lt 2 BACKSPACE>, <&kp BACKSPACE>;
         };
 
         l_out_td: l_out_td {
