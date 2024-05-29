@@ -74,7 +74,14 @@
         };
     };
 
-    conditional_layers { compatible = "zmk,conditional-layers"; };
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        wm {
+            if-layers = <1 2>;
+            then-layer = <3>;
+        };
+    };
 
     combos {
         compatible = "zmk,combos";
@@ -89,16 +96,6 @@
             bindings = <&mo 4>;
             key-positions = <30 31 32 33>;
             layers = <0>;
-        };
-
-        meta_l {
-            bindings = <&lt 3 LEFT_GUI>;
-            key-positions = <31 30>;
-        };
-
-        meta_r {
-            bindings = <&lt 3 LEFT_GUI>;
-            key-positions = <32 33>;
         };
     };
 
