@@ -36,7 +36,7 @@
 
         lsk: lsk {
             compatible = "zmk,behavior-hold-tap";
-            label = "LSK";
+            label = "hold for layer, tap for sticky key";
             bindings = <&mo>, <&sk>;
 
             #binding-cells = <2>;
@@ -90,6 +90,16 @@
             key-positions = <30 31 32 33>;
             layers = <0>;
         };
+
+        meta_l {
+            bindings = <&lt 3 LEFT_GUI>;
+            key-positions = <31 30>;
+        };
+
+        meta_r {
+            bindings = <&lt 3 LEFT_GUI>;
+            key-positions = <32 33>;
+        };
     };
 
     macros {
@@ -137,10 +147,10 @@
 
         default_layer {
             bindings = <
-&kp Q  &kp W  &kp E  &kp R      &kp T       &kp Y     &kp U      &kp I      &kp O    &kp P
-&kp A  &kp S  &kp D  &kp F      &kp G       &kp H     &kp J      &kp K      &kp L    &kp SEMICOLON
-&kp Z  &kp X  &kp C  &kp V      &kp B       &kp N     &kp M      &kp COMMA  &kp DOT  &kp FSLH
-                     &l_out_td  &l_in_td    &r_in_td  &r_out_td
+&kp Q  &kp W  &kp E  &kp R            &kp T          &kp Y            &kp U            &kp I      &kp O    &kp P
+&kp A  &kp S  &kp D  &kp F            &kp G          &kp H            &kp J            &kp K      &kp L    &kp SEMICOLON
+&kp Z  &kp X  &kp C  &kp V            &kp B          &kp N            &kp M            &kp COMMA  &kp DOT  &kp FSLH
+                     &lsk 1 LEFT_GUI  &lt 2 SPACE    &lt 2 BACKSPACE  &lsk 1 LEFT_GUI
             >;
         };
 
