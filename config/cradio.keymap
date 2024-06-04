@@ -43,7 +43,7 @@
             tapping-term-ms = <220>;
             quick-tap-ms = <150>;
             require-prior-idle-ms = <100>;
-            flavor = "hold-preferred";
+            flavor = "balanced";
         };
 
         l_in_td: l_in_td {
