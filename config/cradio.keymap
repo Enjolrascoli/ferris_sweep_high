@@ -203,9 +203,9 @@
 
         symbol2 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans    &kp PAGE_UP    &kp K_MUTE       &trans             &kp LEFT_BRACKET      &kp RIGHT_BRACKET
-&trans  &trans  &trans  &trans  &trans    &kp PAGE_DOWN  &kp C_VOLUME_UP  &kp C_VOLUME_DOWN  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-&trans  &trans  &trans  &trans  &trans    &trans         &trans           &trans             &kp LEFT_BRACE        &kp RIGHT_BRACE
+&trans  &trans  &trans  &trans  &trans    &kp PAGE_UP    &kp K_MUTE         &trans           &kp LEFT_BRACKET      &kp RIGHT_BRACKET
+&trans  &trans  &trans  &trans  &trans    &kp PAGE_DOWN  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
+&trans  &trans  &trans  &trans  &trans    &trans         &trans             &trans           &kp LEFT_BRACE        &kp RIGHT_BRACE
                         &trans  &trans    &trans         &trans
             >;
         };
